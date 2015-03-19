@@ -1,0 +1,238 @@
+.CodeMirror-lines {
+  pointer-events:auto !important;
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+#tracr {
+    font-family: 'SourceSansPro', Helvetica, Arial, "Meiryo UI", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    width: 95%;
+    max-width: 1200px;
+    display: none;
+
+    #json {
+        background: white;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .navigate > span {
+        margin: .2em .5em;
+        vertical-align: middle;
+    }
+
+    .title {
+        margin-right: .75em;
+        font-size: 1.55em;
+        vertical-align: middle;
+    }
+
+    #traces {
+        font-size: 1.2em;
+
+        #userActions {
+            border-bottom: 1px solid gray;
+            padding-bottom: .5em;
+            margin-bottom: .5em;
+
+            ol {
+                margin-left: 0;
+
+                li {
+                    list-style-type: none;
+
+                    span {
+                        > span:first-child {
+                            color: #446fbd;
+                            font-weight: bold;
+                        }
+                        span:nth-child(2) {
+                            margin-left: 5px;
+                            font-style: italic;
+
+                            &:before {
+                                content: "value: \"";
+                            }
+
+                            &:after {
+                                content: "\"";
+                            }
+
+                            &.text:before {
+                                content: "text: \"";
+                            }
+                        }
+                    }
+
+                    > span:first-child {
+                        color: gray;
+                        font-weight: bold;
+                        width: 50px;
+                        display: inline-block;
+                    }
+
+                    &:first-child > span:first-child {
+                        padding-left: 5px;
+                        width: 45px;
+                    }
+                }
+            }
+        }
+    }
+
+    #liveEdit {
+        padding-top: .4em;
+        padding-bottom: .4em;
+        background: #E4E4E4;
+
+        span {
+            display: inline-block;
+            background-image: url('../../images/bolt.svg');
+            height: 21px;
+            width: 15px;
+            vertical-align: middle;
+            margin-right: 0.6em;
+        }
+    }
+
+    &.liveEditLoading #liveEdit span {
+        -webkit-animation: spin .65s ease-in-out infinite;
+    }
+
+    #liveEdit:active {
+        background-color: inherit;
+    }
+
+    .popover-content {
+        display: flex;
+        max-height: 550px;
+
+        > div {
+            width: 50%;
+            margin-left: 6px;
+            overflow: auto;
+        }
+
+        > div:first-child {
+            margin-right: 6px;
+            margin-left: 0px;
+            border-right: 1px solid gray;
+        }
+    }
+
+    .jsonview {
+        /* Hide container brackets */
+        color: white;
+        font-size: 1em !important;
+
+        ul {
+            /* Less indentation (default was 2em) */
+            margin-left: 1.7em;
+        }
+
+        > ul {
+            margin-top: -1em;
+            background: white;
+            color: #333;
+            margin-left: 1em;
+        }
+
+        // "this" -keyword
+        > ul > li:last-child > .prop {
+            color: #446fbd;
+        }
+    }
+
+    #stackTrace {
+        .position {
+            float: right;
+            color: gray;
+        }
+
+        .tracrRow {
+            padding: .2em;
+
+            &:nth-child(2n) {
+                background: rgb(234, 243, 255);
+            }
+
+            &.async {
+                font-size: 1.15em;
+                font-style: italic;
+                background: gray;
+                text-align: center;
+                color: white;
+            }
+
+        }
+    }
+}
+
+.tracrResult {
+    font-weight: bold;
+    color: black;
+    margin-left: 5px;
+    white-space: nowrap;
+
+    &.hasPreview {
+        cursor: pointer;
+    }
+}
+
+#tracrPreview {
+    display: none;
+    position: absolute;
+    z-index: 1002;
+    width: 500px;
+    max-width: 500px;
+    line-height: .9em;
+    font-size: .9em;
+
+    .popover-content {
+        max-height: 350px;
+        overflow: auto;
+    }
+
+    .jsonview {
+        margin-top: -1em;
+        margin-left: -1.5em;
+        color: white;
+
+        > ul {
+            color: #333;
+        }
+    }
+}
+
+#tracrLiveEditActive {
+    color: white;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    z-index: 1003;
+    padding: .8em;
+    background: gray;
+    font-size: 2em;
+    cursor: pointer;
+    border-radius: 25px;
+    -webkit-animation: pulse 2s ease-in-out infinite;;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        background: gray;
+    }
+    50% {
+        background: rgb(51, 51, 51);
+    }
+    100% {
+        background: gray;
+    }
+}

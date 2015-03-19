@@ -1,0 +1,65 @@
+<div class="arrow"></div>
+
+<h3 class="popover-title">
+    <div class="right navigate">
+        <button class="btn prev">&lt;</button>
+        <span>Trace <span class="index">{{index}}</span>/<span class="total">{{total}}</span></span>
+        <button class="btn next">&gt;</button>
+    </div>
+    <span class="title">Trace <span>#{{index}}</span></span>
+    <button id="liveEdit" class="btn"><span></span>live edit using this trace</button>
+</h3>
+
+<div class="popover-content">
+
+    <div id="arguments"></div>
+
+    <div id="traces">
+        <div id="userActions">
+            <h4>User Actions</h4>
+            <div class="c">
+                <ol>
+                    {{#each events}}
+                    <li>
+                        <span>{{this.timeInSeconds}}s</span>
+                        <span>{{{this.description}}}</span>
+                    </li>
+                    {{/each}}
+                </ol>
+            </div>
+        </div>
+        <div id="stackTrace">
+            <h4>Call Stack</h4>
+            <div class="c">
+                {{#each stackTrace}}
+                <div class="tracrRow">
+                    <div class="position">{{this.filename}}:{{this.lineNumber}}</div>
+                    <div>
+                        {{#if this.functionName}}
+                            {{this.functionName}}
+                        {{else}}
+                            anonymous function
+                        {{/if}}
+                    </div>
+                </div>
+                {{/each}}
+                {{#if asyncStackTrace.callFrames}}
+                    <div class="tracrRow async">Async: {{asyncStackTrace.description}}</div>
+                {{/if}}
+                {{#each asyncStackTrace.callFrames}}
+                    <div class="tracrRow">
+                        <div class="position">{{this.filename}}:{{this.lineNumber}}</div>
+                        <div>
+                            {{#if this.functionName}}
+                                {{this.functionName}}
+                            {{else}}
+                                anonymous function
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+</div>

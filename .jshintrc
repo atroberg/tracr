@@ -1,0 +1,5 @@
+{
+    "predef": [ "window", "console", "angular", "$", "setTimeout", "oph", "_", "navigator" ],
+    "sub": true,
+    "laxbreak": true
+}

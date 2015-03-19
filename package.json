@@ -1,0 +1,35 @@
+{
+  "name": "tracr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bracketsClient.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:atroberg/tracr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "cheerio": "^0.18.0",
+    "chrome-remote-interface": "^0.6.0",
+    "cors": "^2.5.3",
+    "escodegen": "^1.6.1",
+    "esprima": "^2.0.0",
+    "esprima-ast-utils": "0.0.6",
+    "express": "^4.11.2",
+    "falafel": "^0.3.1",
+    "http": "0.0.0",
+    "lodash": "^3.1.0",
+    "mocha": "^2.1.0",
+    "mongodb": "^1.4.30",
+    "mysql": "^2.5.4",
+    "q": "^1.1.2",
+    "should": "^5.0.0",
+    "url": "^0.10.2",
+    "ws": "^0.7.1"
+  }
+}

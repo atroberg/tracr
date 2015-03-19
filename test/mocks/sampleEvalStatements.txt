@@ -1,0 +1,41 @@
+var a = 10;
+var b = a + 200;
+true && 100 + 200
+b
+100 < 200
+200
+lorem
+500
+var alex = 'lorem Ipsum';
+300 + alex
+for (var i = 0; i < 4; i++) {
+    console.log(i);
+}
+while (true) {
+    console.log('true');
+}
+100
+200
+250
+'lorem'.trim();
+var myFn = function testMe() {
+    return 100;
+};
+function innerFunction() {
+    return 'lorem';
+}
+innerFunction();
+this.lorem().then(function (response) {
+    var alex = response;
+});
+setTimeout(function () {
+    var myConst = '10sdds';
+    function test() {
+        var b = 100;
+        return b;
+    }
+    test();
+});
+this.todos.filter(function (todo) {
+    return !todo.completed;
+})
